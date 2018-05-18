@@ -7,8 +7,21 @@
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <h1>Escaneador de livros</h1>
+  <h2>Leia o código de barras de um livro e veja informações dele</h2>
+  <button ion-button round full (click)="escanear()">Escanear</button>
+  <ion-card>
+    <ion-card-header>
+      {{informacao}}
+    </ion-card-header>
+      <img src="{{url}}" />
+    <ion-card-content>
+      <ion-card-title>
+{{volumeInfo?.title}} - {{volumeInfo?.subtitle}}
+      </ion-card-title>
+      <p>
+        {{volumeInfo?.authors[0]}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
