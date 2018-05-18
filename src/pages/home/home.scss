@@ -1,3 +1,35 @@
 page-home {
-
+    font-family: monospace;
+    h1{
+        border-style: dotted;
+        border-color: black;
+        padding: 8px;
+    }
+    h2{
+        font-size: 14pt;
+        margin-top: 16px;
+        margin-bottom: 16px; 
+    }
+    .card-title.title-1{
+        font-size: 8pt;
+        margin-bottom: 0px;
+    }
+    .card-title.title-2{
+        margin-top: 0px;
+        margin-bottom: 1px;
+    }
+    .card-title{
+        font-size: 12pt;
+        margin: 8px;
+    }
+.card-content{
+    padding: 0px;
+}
+    .cover{
+        float: left;
+        width: 100px;
+        margin-right: 8px;
+    }
+    .book-info{
+    }
 }

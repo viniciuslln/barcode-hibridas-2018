@@ -1,7 +1,7 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Híbridas 2018
     </ion-title>
   </ion-navbar>
 </ion-header>
@@ -11,17 +11,20 @@
   <h2>Leia o código de barras de um livro e veja informações dele</h2>
   <button ion-button round full (click)="escanear()">Escanear</button>
   <ion-card>
-    <ion-card-header>
-      {{informacao}}
-    </ion-card-header>
-      <img src="{{url}}" />
     <ion-card-content>
-      <ion-card-title>
-{{volumeInfo?.title}} - {{volumeInfo?.subtitle}}
-      </ion-card-title>
-      <p>
-        {{volumeInfo?.authors[0]}}
-      </p>
+      <div>
+        <img class="cover" src="{{url}}" />
+        <div class="book-info">
+          <ion-card-title class="title-1">
+              {{informacao}}
+            </ion-card-title>
+          <ion-card-title class="title-2">
+            {{volumeInfo?.title}}
+          </ion-card-title>
+          <p>{{volumeInfo?.subtitle}}</p>
+          <p>{{volumeInfo?.authors[0]}}</p>
+        </div>
+      </div>
     </ion-card-content>
   </ion-card>
 </ion-content>

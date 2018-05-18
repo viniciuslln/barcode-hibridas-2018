@@ -5,6 +5,7 @@ import { BuscalivroProvider } from '../../providers/buscalivro/buscalivro';
 
 const LIVRO_ENCONTRADO = "Livro encontrado";
 const LIVRO_NAO_ENCONTRADO = "Livro não encontrado";
+const LIVRO_NAO_ENCONTRADO_ERRO = "Erro ao recuperar Livro";
 const NAO_E_LIVRO = "O código não corresponde a um livro";
 
 
@@ -23,6 +24,9 @@ export class HomePage {
     private loading: LoadingController) { }
 
   escanear() {
+    this.url = '';
+    this.informacao = '';
+    this.volumeInfo = {};
     this.barcodeScanner.scan().then(barcodeData => {
       console.log('Barcode data', barcodeData);
       
@@ -44,17 +48,17 @@ export class HomePage {
     load.present()
     this.livros.getLivro(codigo)
       .then((response: any) => {
-        if(response.items.length == 0){
-        this.informacao = LIVRO_NAO_ENCONTRADO;
+        if(response.DebugContext_ > 0){
+          this.informacao = LIVRO_NAO_ENCONTRADO;
         }else{
-        this.informacao = LIVRO_ENCONTRADO;
-        this.url = response.items[0].imageLinks.thumbnail;
-        this.volumeInfo = response.items[0].volumeInfo;
+          this.informacao = LIVRO_ENCONTRADO;
+          this.url = response.items[0].volumeInfo.imageLinks.thumbnail;
+          this.volumeInfo = response.items[0].volumeInfo;
         }
         load.dismiss()
       })
       .catch(error => {
-        this.informacao = LIVRO_NAO_ENCONTRADO;
+        this.informacao = LIVRO_NAO_ENCONTRADO_ERRO;
         load.dismiss();
       });
   }
