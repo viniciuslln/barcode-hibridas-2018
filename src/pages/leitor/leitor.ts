@@ -10,10 +10,10 @@ const NAO_E_LIVRO = "O código não corresponde a um livro";
 
 
 @Component({
-  selector: 'page-home',
-  templateUrl: 'home.html'
+  selector: 'page-leitor',
+  templateUrl: 'leitor.html'
 })
-export class HomePage {
+export class LeitorPage {
   url = "";
   informacao = "";
   volumeInfo: any;
